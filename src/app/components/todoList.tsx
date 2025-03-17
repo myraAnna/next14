@@ -10,6 +10,9 @@ export default function TodoList({ todoList, onRemoveTodo }: TodoListProps) {
     return (
         <div className="card">
         <h2 className="card-title">Your Activities</h2>
+        <p className="text-sm text-gray-600 mb-4">
+            Total activities: {todoList.length}
+        </p>
 
         {todoList.length === 0 ? (
             <p className="empty-state">No activities yet. Add one above!</p>
