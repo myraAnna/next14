@@ -1,17 +1,34 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import TodoForm from "./components/todoForm";
 import TodoList from "./components/todoList";
 import { TodoItem } from "./types";
 
 export default function Home() {
+  const [todoList, setTodoList] = useState<TodoItem[]>(() => {
 
-  const [todoList, setTodoList] = useState<TodoItem[]>([]);
+    if (typeof window !== 'undefined') {
+      try {
+        const savedTodos = localStorage.getItem('todos');
+        return savedTodos ? JSON.parse(savedTodos) : [];
+      } catch (error) {
+        console.error('Failed to load todos from localStorage:', error);
+        return [];
+      }
+    }
+    return [];
+  });
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('todos', JSON.stringify(todoList));
+    } catch (error) {
+      console.error('Failed to save todos to localStorage:', error);
+    }
+  }, [todoList]);
 
   const handleAddTodo = useCallback((todoData: Omit<TodoItem, 'id'>) => {
-
     setTodoList((prev) => [
       ...prev,
       {
@@ -20,7 +37,6 @@ export default function Home() {
       },
     ]);
   }, []);
-
 
   const handleRemoveTodo = useCallback((id: number) => {
     setTodoList((prev) => prev.filter((todo) => todo.id !== id));
