@@ -1,14 +1,9 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { TodoItem } from "../types";
 
-interface TodoFormData {
-  activity: string;
-  price: number;
-  type: string;
-  bookingRequired: boolean;
-  accessibility: number;
-}
+type TodoFormData = Omit<TodoItem, 'id'>;
 
 // Props for TodoForm component
 interface TodoFormProps {

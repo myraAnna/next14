@@ -1,13 +1,5 @@
 import React from 'react';
-
-interface TodoItem {
-    id: number;
-    activity: string;
-    price: number;
-    type: string;
-    bookingRequired: boolean;
-    accessibility: number;
-}
+import { TodoItem } from '../types';
 
 interface TodoListProps {
     todoList: TodoItem[];
