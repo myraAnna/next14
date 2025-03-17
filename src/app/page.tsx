@@ -3,16 +3,7 @@
 import { useState, useCallback } from "react";
 import TodoForm from "./components/todoForm";
 import TodoList from "./components/todoList";
-
-// Define the type for a to-do item
-interface TodoItem {
-  id: number;
-  activity: string;
-  price: number;
-  type: string;
-  bookingRequired: boolean;
-  accessibility: number;
-}
+import { TodoItem } from "./types";
 
 export default function Home() {
 

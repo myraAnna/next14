@@ -1,0 +1,58 @@
+@tailwind components;
+
+@layer components {
+  /* Forms */
+  .form-container {
+    @apply space-y-4;
+  }
+  
+  .form-group {
+    @apply block text-sm font-medium mb-1;
+  }
+  
+  .form-input {
+    @apply w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600;
+  }
+  
+  .form-checkbox-group {
+    @apply flex items-center;
+  }
+  
+  .form-checkbox {
+    @apply h-4 w-4 mr-2;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition-colors;
+  }
+  
+  .btn-danger {
+    @apply text-red-500 hover:text-red-700 text-sm;
+  }
+  
+  /* Todo List */
+  .todo-list {
+    @apply space-y-3;
+  }
+  
+  .todo-item {
+    @apply border-b pb-3 last:border-b-0 last:pb-0;
+  }
+  
+  .todo-content {
+    @apply flex justify-between items-start;
+  }
+  
+  .todo-title {
+    @apply font-medium;
+  }
+  
+  .todo-details {
+    @apply text-sm text-gray-600 dark:text-gray-300;
+  }
+  
+  .empty-state {
+    @apply text-gray-500 text-center py-4;
+  }
+}
